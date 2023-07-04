@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id        Int        @id @default(autoincrement())
+  nome      String?
+  cpf       String
+  telefone  String?
+  email     String     @unique
+  password  String
+  isAdmin   Boolean    @default(false)
+  carrinhos Carrinho[]
+  Reserva   Reserva[]
+}
+
+model Filme {
+  filmeId              Int       @id @default(autoincrement())
+  imagem               String
+  nome                 String    @unique
+  genero               String
+  duracao              Int
+  dataHora             String
+  ingressosDisponiveis Int
+  valor                Float
+  tipodeSessao         String
+  reserva              Reserva[]
+}
+
+model Ingresso {
+  id          String  @id @default(uuid())
+  reservaId   Int
+  reserva     Reserva @relation(fields: [reservaId], references: [id])
+}
+
+model Carrinho {
+  id          Int     @id @default(autoincrement())
+  valorTotal  Float
+  compradorId Int
+  comprador   User   @relation(fields: [compradorId], references: [id], onDelete: NoAction)
+  reservaId   Int     @unique
+  reserva     Reserva @relation(fields: [reservaId], references: [id], onDelete: Cascade)
+
+  @@unique([compradorId, id])
+}
+
+model Reserva {
+  id          Int        @id @default(autoincrement())
+  data        DateTime   @default(now())
+  filmeId     Int
+  compradorId Int
+  quntIngresso Int
+  filme       Filme      @relation(fields: [filmeId], references: [filmeId],onDelete: NoAction)
+  comprador   User      @relation(fields: [compradorId], references: [id],onDelete: NoAction)
+  carrinho    Carrinho[]
+  Ingresso    Ingresso[]
+
+  @@unique([id])
+}
