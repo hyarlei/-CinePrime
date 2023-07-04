@@ -1,9 +1,10 @@
+<h1 align="center">Cine🍿Prime</h1>
 
 # Visão Geral
 
 Nessa aplicação de cinema, teremos as entidades "Filme", "Sessão", "Ingresso" e "Comprador". Os filmes estarão associados a uma ou mais sessões, e cada sessão terá um horário e uma quantidade de ingressos disponíveis. Os compradores poderão comprar ingressos para as sessões disponíveis, informando seus dados pessoais.
 
-## Funcionalidades
+### Funcionalidades
 
 1. Cadastrar Filme
 Permitir que o usuário cadastre um filme, informando o nome, o código, o genero, a duração e a classificação indicativa.
