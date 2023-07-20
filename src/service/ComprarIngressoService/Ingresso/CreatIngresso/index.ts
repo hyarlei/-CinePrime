@@ -12,14 +12,12 @@ export class CreateIngressoService {
   async execute(req: Request, res: Response) {
     const { reservaId } = req.params;
 
-    // Criar ingresso
     const ingresso = await prisma.ingresso.create({
       data: {
         reservaId: Number(reservaId),
       },
     });
 
-    // Validar ingresso
     if (!ingresso) {
       return res.status(500).json({ message: "Erro ao criar ingresso" });
     }

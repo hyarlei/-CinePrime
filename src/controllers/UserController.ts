@@ -38,7 +38,7 @@ export class DeleteUserController {
     const user = await deleteUserService.execute(
       req,
       res
-  );
+    );
 
     return user;
   }
@@ -61,12 +61,12 @@ export class ListarUsersController {
 export class ListarUsersEmailController {
   async listarUsers(req: Request, res: Response) {
 
-    const {email} = req.body;
+    const { email } = req.body;
 
     const findUserByEmailService = new FindUserByEmailService();
 
     const user = await findUserByEmailService.execute(
-      { email: String(email)},
+      { email: String(email) },
       req,
       res
     );
@@ -92,7 +92,7 @@ export class UpdateUserController {
   }
 }
 
-export class findUserById{
+export class findUserById {
   async find(req: Request, res: Response) {
     const { id } = req.params;
 
@@ -105,5 +105,5 @@ export class findUserById{
     );
 
     return user;
-}
+  }
 }

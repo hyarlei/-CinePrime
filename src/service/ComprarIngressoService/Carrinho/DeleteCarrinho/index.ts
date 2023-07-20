@@ -12,7 +12,6 @@ export class CancelarCarrinhoService{
 
     console.log(carrinhoId);
 
-
       await prisma.carrinho.delete({
         where: {
           id: Number(carrinhoId),

@@ -60,20 +60,3 @@ export class CancelarCarrinho {
   }
 }
 
-// export class UpdatedReservation {
-//   async execute(req: Request, res: Response) {
-
-//     const {carrinhoId} = req.params;
-
-//     const updatedReservationService = new UpdatedReservationService();
-
-//     const carrinho = await updatedReservationService.updatedReserva(
-//         {carrinhoId: Number(carrinhoId)},
-//         req,
-//         res
-//       );
-
-//     return carrinho;
-//   }
-// }
-
