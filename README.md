@@ -6,7 +6,7 @@
 
 Clone o repositório em seu computador
 
-    git clone https://github.com/soaresWT/petwalk-api
+    git clone https://github.com/hyarlei/-CinePrime.git
 
 Acesse o diretório do projeto
 
