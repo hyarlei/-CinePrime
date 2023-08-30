@@ -51,7 +51,7 @@ Execute o projeto
 
     yarn dev
 
-Sucesso :rocket::rocket::rocket: petwalk-api estará disponível em http://localhost:3333/. Você pode acessar esta URL em seu navegador para utilizar o projeto.
+Sucesso :rocket::rocket::rocket: Cine🍿Prime estará disponível em http://localhost:3333/. Você pode acessar esta URL em seu navegador para utilizar o projeto.
 
 # Visão Geral
 
