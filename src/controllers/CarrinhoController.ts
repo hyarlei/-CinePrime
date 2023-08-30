@@ -4,6 +4,11 @@ import { AddCarrinhoService } from '../service/ComprarIngressoService/Carrinho/A
 import { ListarCarrinhoService } from '../service/ComprarIngressoService/Carrinho/FindAllCarrinhoService'
 import { CancelarCarrinhoService } from '../service/ComprarIngressoService/Carrinho/DeleteCarrinho/index';
 import { FindCarrinhoByIdService } from '../service/ComprarIngressoService/Carrinho/FindByCarrinhoId/index';
+
+interface Carrinho {
+
+}
+
 export class AddCarrinho {
     async execute(req: Request, res: Response) {
 

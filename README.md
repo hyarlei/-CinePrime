@@ -1,5 +1,58 @@
 <h1 align="center">Cine🍿Prime</h1>
 
+:smiley::rocket:Seja Seja bem-vindo ao repositório do backend da CinePrime. Aqui, iremos guiá-lo para que você consiga instalar e configurar o ambiente de desenvolvimento. Certifique-se de ter previamente o Node.js e o Git instalados em seu computador.
+
+**01: Como baixar  o projeto inicial**
+
+Clone o repositório em seu computador
+
+    git clone https://github.com/soaresWT/petwalk-api
+
+Acesse o diretório do projeto
+
+    cd Cinema
+
+Instale as dependências do projeto usando o gerenciador de pacotes npm ou yarn:
+
+    npm install ou yarn install
+
+**02: Como configurar o Docker**
+
+Primeiro Certifique-se de ter o Docker instalado em sua maquina.
+
+> **Windows** https://docs.docker.com/desktop/install/windows-install/
+>**Linux** https://docs.docker.com/desktop/install/linux-install/
+
+Na pasta raiz do seu projeto execute o seguinte comando para iniciar o docker
+
+    docker-compose up -d
+
+Pronto, seu docker está configurado.
+
+**03: Configurar o Arquivo .env**
+
+Defina as seguintes variáveis de ambiente no arquivo .env e edite retirando o nome .env.example:
+
+    DATABASE_URL="postgres://username:password@localhost:5432/nome_do_banco"
+
+Certifique-se de substituir username e password pelas suas credenciais de acesso ao banco de dados PostgreSQL.
+
+**04: Execute as migrações do banco de dados para criar as tabelas necessárias:**
+
+    npx prisma migrate dev
+		    ou
+    yarn prisma migrate dev
+
+Execute o projeto
+
+    npm run dev
+
+	    ou
+
+    yarn dev
+
+Sucesso :rocket::rocket::rocket: petwalk-api estará disponível em http://localhost:3333/. Você pode acessar esta URL em seu navegador para utilizar o projeto.
+
 # Visão Geral
 
 CinePrime é uma aplicação de gerenciamento de cinema, que permite cadastrar sessões de filmes, listar sessões disponíveis, cadastrar e listar filmes, cadastrar compradores, gerenciar ingressos e realizar compras de ingressos. O objetivo da aplicação é fornecer uma plataforma para que os usuários possam encontrar informações sobre sessões de filmes, comprar ingressos e gerenciar suas compras.
@@ -37,53 +90,3 @@ Framework Web e biblioteca: Express e Node.js,
 ORM: Prisma ORM,
 Gerenciador de Containers: Docker,
 Autenticação: JWT.
-
-## 🛠️ Instruções de execução
-
-Siga as instruções abaixo para rodar o projeto em seu ambiente local:
-
-1. Certifique-se de ter o Node.js instalado em seu computador. Você pode baixar a versão mais recente do Node.js em https://nodejs.org.
-
-2. Clone este repositório em seu computador ou faça o download do código fonte.
-
-3. Abra o terminal e navegue até o diretório raiz do projeto.
-
-4. Instale as dependências do projeto(Utilize npm ou yarn) executando o seguinte comando:
-
-```bash
-  npm install ou yarn install
-```
-
-5. Após a conclusão da instalação das dependências, inicie o servidor de desenvolvimento local com o comando:
-
-```bash
-  npm dev ou yarn dev
-```
-
-6. O servidor local será iniciado e você poderá acessar o projeto no seu navegador através do seguinte endereço:
-
-```bash
-  http://localhost:3333
-```
-
-Essa URL abaixo, faz a conexão com o Banco de Dados, certifique de passar as informações corretas no arquivo .env.exemple da aplicação.
-```
-DATABASE_URL=postgres://username:password@localhost:5432/nome_do_banco
-```
-
-Certifique-se de substituir username e password pelas suas credenciais de acesso ao banco de dados PostgreSQL.
-
-Execute as migrações do banco de dados para criar as tabelas necessárias:
-
-```
-npx prisma migrate dev ou yarn prisma migrate dev
-```
-
-Para rodar a aplicação execute o seguinte comando:
-
-```
-npm run dev ou yarn dev
-```
-
-O CinePrime estará disponível em http://localhost:3333. Você pode acessar esta URL em seu navegador para utilizar o projeto.
-

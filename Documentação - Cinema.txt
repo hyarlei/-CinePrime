@@ -2,78 +2,100 @@
 
 * Visão Geral:
 
-Essa aplicação de cinema tem como objetivo permitir que os usuários comprem ingressos online e que os proprietários de cinema gerenciem suas sessões e vendas. A aplicação inclui as entidades "User", "Filme", "Sessão", "Ingresso" e "Comprador", "Carrinho". Os filmes estarão associados a uma ou mais sessões, e cada sessão terá um horário e uma quantidade de ingressos disponíveis. Há dois atores diferentes na aplicação: os Compradores (Usuários) e os Donos de Cinema.
+Essa aplicação de cinema tem como objetivo permitir que os usuários comprem ingressos online e que os proprietários de cinema gerenciem suas sessões e vendas. A aplicação inclui as entidades "User", "Filme", "Sessão", "Ingresso" e "Comprador", "Carrinho". Os filmes estarão associados a uma ou mais sessões, e cada sessão terá um horário e uma quantidade de ingressos disponíveis. Há dois atores diferentes na aplicação: os Compradores (Clientes), Funcionários, e um único Dono do Cinema.
 
-* Comprador (Usuário):
+* Comprador (Cliente):
 
 - Pode criar uma conta no sistema (Logar)
 - Pode autenticar-se no sistema
+
 - Pode visualizar as sessões disponíveis para compra
 - Pode adicionar ingressos no carrinho de compras
 - Pode finalizar a compra e realizar o pagamento
 - Pode visualizar seu histórico de compras
 
-* Dono do Cinema (Admin):
+* Funcionários do Cinema (Admins):
 
 - Pode criar uma conta no sistema
 - Pode autenticar-se no sistema
+
 - Pode cadastrar novas sessões de filmes e seus respectivos ingressos
 - Pode visualizar o histórico de compras dos clientes em seu cinema
 - Pode atualizar informações do seu cinema
 - Pode emitir relatórios de vendas
 
-Assim, enquanto o Comprador (Usuário) possui funcionalidades relacionadas a compra de ingressos e gerenciamento de suas compras, o Dono do Cinema tem acesso a funcionalidades de gerenciamento e controle do cinema, incluindo o cadastro de novas sessões e o acompanhamento de relatórios de vendas.
+Assim, enquanto o Comprador (Cliente) possui funcionalidades relacionadas a compra de ingressos e gerenciamento de suas compras, os Funcionários do Cinema tem acesso a funcionalidades de gerenciamento e controle do cinema, incluindo o cadastro de novas sessões e o acompanhamento de relatórios de vendas.
 
 * Funcionalidades:
 
-1. Cadastrar Filme(UsuárioAutenticado)
+1. Cadastrar Filme (Funcionários)
 Permite que o Admin cadastre um filme, informando o nome, o código, o gênero, a duração e a classificação indicativa.
 
-2. Listar Filmes(Admin)
+2. Listar Filmes (Funcionários, Clientes)
 Exibe uma lista com todos os filmes cadastrados, incluindo o gênero e a classificação indicativa.
 
-3. Cadastrar Sessão(Admin)
+3. Cadastrar Sessão (Funcionários)
 Permite que o usuário cadastre uma sessão para um filme, informando o horário, a quantidade de ingressos disponíveis e o valor do ingresso.
 
-4. Listar Sessões Disponíveis(UsuárioPadrão)
+4. Listar Sessões Disponíveis (Funcionários, Clientes)
 Exibe uma lista com todas as sessões disponíveis, incluindo o filme, o horário, a quantidade de ingressos disponíveis e o valor do ingresso.
 
-5. Comprar Ingresso(UsuárioPadrão)
+4.1 Listar Sessões Indisponíveis (Funcionários)
+
+5. Comprar Ingresso (Clientes)
 Permite que o comprador selecione uma sessão e compre um ou mais ingressos para essa sessão, informando seus dados pessoais (nome, CPF, telefone e e-mail) e finalizando a compra. Ao finalizar a compra, a quantidade de ingressos disponívenis para a sessão deve ser atualizada e o ingresso deve ser adicionado à lista de ingressos do comprador.
 
-6. Ver Ingressos Comprados(UsuárioPadrão)
+6. Ver Ingressos Comprados (Clientes)
 Exibe a lista de ingressos comprados pelo comprador, incluindo o ID do ingresso, o filme, a sessão, o horário, o valor e a disponibilidade.
 
-7. Cancelar Compra de Ingresso(UsuárioPadrão)
+7. Cancelar Compra de Ingresso (Funcionários, Cliente)
 Permite que o comprador cancele a compra de um ingresso. Ao cancelar a compra, a quantidade de ingressos disponíveis para a sessão deve ser atualizada e o ingresso deve ser removido da lista de ingressos do comprador.
 
 * Fluxo da aplicação:
 
--O usuário deverar acessar o "Site do Cinema", ele vai ter as opções de: 
+-O Cliente deverar acessar o "Site do Cinema", ele vai ter as opções de: 
 
--Deverá antes fazer o seu Cadastro/Login na plataforma.
+	-Deverá antes fazer o seu Cadastro/Login na plataforma. <- Para comprar imgresso
 
--Ver lista de filmes em cartaz ou de procurar um filme específico.
+	-Ver lista de filmes em cartaz ou de procurar um filme específico.
+	
+	-O usuário pode selecionar um filme e ver os horários disponíveis para a sessão escolhida. 
 
--Se o usuário escolher a lista de filmes em cartaz, ele é redirecionado para uma página que apresenta os filmes disponíveis e suas respectivas sessões. 
+	-A página inicial dos Clientes apresenta os filmes disponíveis e suas respectivas sessões. 
 
--O usuário pode selecionar um filme e ver os horários disponíveis para a sessão escolhida. 
+	-O usuário escolhe a sessão e é redirecionado para uma página de compra de ingressos. 
 
--O usuário escolhe a sessão e é redirecionado para uma página de compra de ingressos. 
+	-Na página de compra de ingressos, o usuário seleciona o número de ingressos que deseja comprar. 
 
--Na página de compra de ingressos, o usuário seleciona o número de ingressos que deseja comprar. 
+	-O usuário insere seus dados pessoais, como (nome, cpf, e-mail e telefone). 
 
--O usuário insere seus dados pessoais, como (nome, cpf, e-mail e telefone). 
+	-O usuário escolhe a forma de pagamento e insere os dados do cartão de crédito.
 
--O usuário escolhe a forma de pagamento e insere os dados do cartão de crédito.
+	-O Cliente ao finalizar sua compra, recebe uma mensagem de confirmação de compra.
 
--O sistema processa o pagamento e exibe uma mensagem de confirmação de compra. 
+	-O Cliente recebe um e-mail com o ingresso que deve ser apresentado na entrada da sala de cinema.
 
--O usuário recebe um e-mail com os detalhes da compra e que deve ser apresentado na entrada da sala de cinema. 
+	-No final de cada processo, depois mesmo de assistir ao filme ele poderá avaliar, ou seja da o seu fedaback em todo o processo, incluindo a qualidade do filme.
+ 
+-Funcionário:
 
--No dia da sessão, o usuário apresenta o email na entrada da sala e é direcionado para o assento correspondente.
+	-Para confirmar entrada do cliente no cinema o funcionário solicita o ingresso como forma de comprovante. 
 
--No final de cada processo, depois mesmo de assistir ao filme ele poderá avaliar, ou seja da o seu fedaback em todo o processo, incluindo a qualidade do filme.
+	-Para imprimir ingresso do cliente o funcionário solicita o CPF do cliente.
+-Sistema: 
+
+	-No dia da sessão, o usuário apresenta o email na entrada da sala e é direcionado para o assento correspondente.
+
+-Dono ADM Principal:
+	-CRUD Funcionários
+
+	-Ter todos funcionálidades de Funcionários
+
+	-Acesso ao fluxo de caixa (dinheiro) existente no sistema.
+
+	-Integrar extratos
+
+
 
 * Tecnologias utilizadas:
 

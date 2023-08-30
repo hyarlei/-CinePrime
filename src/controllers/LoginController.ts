@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { NextFunction, Request, Response } from "express";
+
 import { UserAuthenticationService } from '../service/UserAuthenticationService/index'
 
 const prisma = new PrismaClient();
